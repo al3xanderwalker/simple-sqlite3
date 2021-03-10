@@ -8,7 +8,6 @@ export declare class Database {
     get(key: string): Promise<any>;
     set(key: string, value: any): Promise<void>;
     delete(key: string): Promise<void>;
-    ensure(key: string, value: string): Promise<void>;
-    ensureJSON(key: string, data: object): Promise<void>;
+    ensure(key: string, value: any): Promise<void>;
 }
 //# sourceMappingURL=Database.d.ts.map

@@ -59,17 +59,13 @@ export class Database {
     await this.knex(this.table).where('key', key).del();
   }
 
-  async ensure(key: string, value: string) {
+  async ensure(key: string, value: any) {
     let rows = await this.knex.select('*').from(this.table).where('key', key);
     if (!rows.length) {
       await this.knex(this.table).insert({
-        key: 'key',
-        value: value,
+        key: key,
+        value: JSON.stringify(value),
       });
     }
-  }
-
-  async ensureJSON(key: string, data: object) {
-    await this.ensure(key, JSON.stringify(data));
   }
 }
