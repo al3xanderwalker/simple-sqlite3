@@ -37,6 +37,10 @@ export class Database {
     if (!rows.length) return null;
     return JSON.parse(rows[0].value);
   }
+  async all() {
+    let rows = await this.knex.select('*').from(this.table);
+    return rows;
+  }
 
   async set(key: string, value: any) {
     let rows = await this.knex.select('*').from(this.table).where('key', key);

@@ -6,6 +6,7 @@ export declare class Database {
     safe(): Promise<this>;
     ensureTable(): Promise<void>;
     get(key: string): Promise<any>;
+    all(): Promise<any[]>;
     set(key: string, value: any): Promise<void>;
     delete(key: string): Promise<void>;
     ensure(key: string, value: any): Promise<void>;
